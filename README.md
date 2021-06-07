@@ -54,5 +54,29 @@ optional arguments:
   --verbose          Noisy output with banner and step by step updates
 ```
 
+## Importing as a Module
+
+```python
+import cloudfish
+
+# Call cloudfish
+dns = cloudfish.cloudfish()
+# Retrieve the records
+#Data order is:	       domain,    global key,                  email,             account id,                  verbose (True|False)
+records = dns.records('yahoo.com','hu76tghu76tghju76tghu76tgh','indy@example.com','ghu76tghji8765edfghji98765',False)
+
+for record in records:
+    columns = record.split('|')
+    type = columns[0]
+    name = columns[1]
+    value = columns[2]
+
+    if type == "CNAME":
+        print(name+" => "+value)
+
+```
+
+When the raw response is returned to your variable it will be a list with each record returned. The records will have `|` seperating each column `type`,`name`, and `value`. From here you can filter it however you'd like. In the example above I filtered just the `CNAME` records and printed the results. 
+
 ## Inspiration
-Back in 2016, Matthew Bryant released [`cloudflare_enum`](https://github.com/mandatoryprogrammer/cloudflare_enum/), which made use of Cloudflare's automatic DNS scanner to find subdomains for pentesting against targets. I stumbled across Cloudflare's DNS scanner and eventually onto the [`cloudflare_enum`](https://github.com/mandatoryprogrammer/cloudflare_enum/) project. I realize it was completely broken given its age and wrote a new script using the Cloudflare API. Enjoy.  
+Back in 2016, [Matthew Bryant](https://github.com/mandatoryprogrammer) released [`cloudflare_enum`](https://github.com/mandatoryprogrammer/cloudflare_enum/), which made use of Cloudflare's automatic DNS scanner to find subdomains for pentesting against targets. I stumbled across Cloudflare's DNS scanner and did manual testing for a while. Eventually I found the `cloudflare_enum` project, but I realize it was completely broken given its age. Since I still needed an automated way to use Cloudflare's DNS scanner I wrote a new script using the Cloudflare API v4. Enjoy!
