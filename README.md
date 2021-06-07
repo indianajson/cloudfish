@@ -3,9 +3,7 @@
   
 This tool finds subdomains using Cloudflare's DNS scanner. That's it. 
 
-When run it will automatically create a Cloudflare zone for a given domain, scan for DNS records, save any records found, and delete the zone. The script is quiet by default (outputting only a tab delimited list of DNS records). If you want to see what's going on add the `--verbose` flag to your command. The request is totally passive since Cloudflare runs the test on their end. 
-
-## Output
+When run it will automatically create a Cloudflare zone for a given domain, scan for DNS records, save any records found, and delete the zone. The script is quiet by default (outputting only a tab delimited list of DNS records). If you want to see what's going on add the `--verbose` flag to your command. The request is totally passive since Cloudflare runs the test on their end. <br><br>
 
 ```sh
 indy@mac > ./cloudfish.py -k de567yuhgfr567yhg -e indy@example.com -a 3456ygfe3456ygf -d yahoo.com --verbose
@@ -76,7 +74,7 @@ for record in records:
 
 ```
 
-When the raw response is returned to your variable it will be a list with each record returned. The records will have `|` seperating each column `type`,`name`, and `value`. From here you can filter it however you'd like. In the example above I filtered just the `CNAME` records and printed the results. 
+When the raw response is returned to your variable it will be a list seperated by record. The records will have `|` seperating each column `type`,`name`, and `value`. From here you can filter it however you'd like. In the example above I filtered just the `CNAME` records and printed the results. 
 
 ## Inspiration
 Back in 2016, [Matthew Bryant](https://github.com/mandatoryprogrammer) released [`cloudflare_enum`](https://github.com/mandatoryprogrammer/cloudflare_enum/), which made use of Cloudflare's automatic DNS scanner to find subdomains for pentesting against targets. I stumbled across Cloudflare's DNS scanner and did manual testing for a while. Eventually I found the `cloudflare_enum` project, but I realize it was completely broken given its age. Since I still needed an automated way to use Cloudflare's DNS scanner I wrote a new script using the Cloudflare API v4. Enjoy!
