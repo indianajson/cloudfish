@@ -1,8 +1,6 @@
 <h1 align="center">Cloudfish<br>
   <sup><sub>FIND SUBDOMAINS USING CLOUDFLARE</sub></sup><br></h1>
   
-## Summary
-
 This tool finds subdomains using Cloudflare's DNS scanner. That's it. 
 
 When run it will automatically create a Cloudflare zone for a given domain, scan for DNS records, save any records found, and delete the zone. The script is quiet by default (outputting only a tab delimited list of DNS records). If you want to see what's going on add the `--verbose` flag to your command. The request is totally passive since Cloudflare runs the test on their end. 
