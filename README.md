@@ -1,9 +1,9 @@
 <h1 align="center">Cloudfish<br>
   <sup><sub>FIND SUBDOMAINS USING CLOUDFLARE</sub></sup><br></h1>
   
-This tool finds subdomains using Cloudflare's DNS scanner. That's it. 
+This tool performs subdomain enumeration on a given domain using Cloudflare's DNS scanner. *That's it.* 
 
-When run it will automatically create a Cloudflare zone for a given domain, scan for DNS records, save any records found, and delete the zone. The script is quiet by default (outputting only a tab delimited list of DNS records). If you want to see what's going on add the `--verbose` flag to your command. The request is totally passive since Cloudflare runs the test on their end. <br><br>
+Written in Python and designed for penetration testers and bounty hunters, this script will (1) create a Cloudflare zone for a given domain, (2) scan for DNS records, (3) save any records found, and (4) delete the zone. The script is quiet by default (outputting only a tab delimited list of DNS records). If you want to see what's going on add the `--verbose` flag to your command. The request is totally passive since Cloudflare runs the test on their end. <br><br>
 
 ```sh
 indy@mac > ./cloudfish.py -k de567yuhgfr567yhg -e indy@example.com -a 3456ygfe3456ygf -d yahoo.com --verbose
