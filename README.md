@@ -52,6 +52,12 @@ optional arguments:
   --verbose          Noisy output with banner and step by step updates
 ```
 
+## Finding Your Account ID 
+
+Aside from your email and API key, you need your Cloudflare Account ID to use this script.  To find your Account ID, login to Cloudflare, click on "Websites" then look at the URL in your browser, it will look like ```https://dash.cloudflare.com/34vy7ujmindy45tyhn9ijbt5tgb/```
+
+That code (`34vy7ujmindy45tyhn9ijbt5tgb`) in the URL is your Account ID. You can also find it once you add a website (it's in a special section), but until you add a website manually to the Cloudflare website you can only get it from the URL. 
+
 ## Importing as a Module
 
 ```python
