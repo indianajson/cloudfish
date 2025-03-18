@@ -78,7 +78,9 @@ class cloudfish:
         scan = requests.post(self.api+'/'+self.zone+'/dns_records/scan',timeout = 60, headers=headers)
         records = requests.get(self.api+'/'+self.zone+'/dns_records?page=1&per_page=100',headers=headers)
         records_j = records.json()
-
+        if "result" not in create_j or create_j["result"] is None:
+            print('\033[1;91;40m[ERROR] The domain you attempted to enumerate does not exist or is invalid.')
+            exit(0)
 
         count = records_j['result_info']['count']
         total_count = records_j['result_info']['total_count']
